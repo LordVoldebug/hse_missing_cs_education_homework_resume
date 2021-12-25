@@ -30,7 +30,6 @@ jobs:
         run: |
           docker build --tag homework -f Dockerfile .
           docker run --name CV homework
-          mkdir CV
           docker cp CV:main.pdf CV/main.pdf
    
       - name: Publish pdf
