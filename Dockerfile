@@ -12,4 +12,5 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
 
 COPY CV/main.tex main.tex
 COPY CV/main.sh main.sh
+RUN chmod 777 main.sh
 CMD ["./main.sh"]
