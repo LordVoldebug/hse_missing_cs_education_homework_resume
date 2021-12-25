@@ -30,14 +30,16 @@ jobs:
         run: |
           docker build --tag homework -f Dockerfile .
           docker run --name CV homework
-          docker cp CV:main.pdf CV/main.pdf
+          mkdir CV_RESULT
+          docker cp CV:main.pdf CV_RESULT/main.pdf
    
+     # used example from here: https://github.com/marketplace/actions/github-pages
       - name: Publish pdf
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
-          build_dir: CV
+          build_dir: CV_RESULT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
